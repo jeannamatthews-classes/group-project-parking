@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Parking App</string>
+<!--    <string name="select_item">Dropdown Menu</string>-->
+    <string name="select_item">Select Item</string>
+</resources>

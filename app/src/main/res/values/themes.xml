@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ParkingApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- primary brand colors -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/gold</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- secondary brand colors -->
+        <item name="colorSecondary">@color/green2</item>
+
+        <!-- background color -->
+        <item name="android:colorBackground">@color/green</item>
+
+    </style>
+
+    <style name="Theme.ParkingApp" parent="Base.Theme.ParkingApp" />
+</resources>
