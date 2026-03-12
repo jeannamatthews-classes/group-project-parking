@@ -10,10 +10,11 @@ Email	kingsd@clarkson.edu
 24-Feb	60	  Gannt Chart (created a more refined version)	
 24-Feb	35	  Meeting 3	
 24-Feb	30	  Gannt Chart finializiation	
-3-Mar	  40	  Meeting 4	
-4-Mar	  60	  Meeting With User	
+3-Mar	40	  Meeting 4	
+4-Mar	60	  Meeting With User	
 5-Mar  	75	  Class	
 10-Mar	60	  Rough UI implementation	
 10-Mar	40	  Meeting 5	
 11-Mar	20	  Meeting With User	
 12-Mar	75	  Class	
+
