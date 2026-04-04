@@ -2,4 +2,17 @@
     <string name="app_name">Parking App</string>
 <!--    <string name="select_item">Dropdown Menu</string>-->
     <string name="select_item">Select Item</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string-array name="Locations">
+        <item>Clarkson</item>
+        <item>Potsdam</item>
+    </string-array>
+
+    <string-array name="Lot_Names">
+        <item>Cheel</item>
+        <item>Quad</item>
+        <item>Woodstock</item>
+    </string-array>
 </resources>
