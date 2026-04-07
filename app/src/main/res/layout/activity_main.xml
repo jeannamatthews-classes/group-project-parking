@@ -19,11 +19,17 @@
             android:background="?attr/colorPrimary"
             app:title="Parking App" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_container" >
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewLots"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp" />
+        </FrameLayout>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

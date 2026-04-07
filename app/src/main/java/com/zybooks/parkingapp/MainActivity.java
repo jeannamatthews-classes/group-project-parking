@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the toolbar so we can add the toggle button
         setSupportActionBar(toolbar);
 
-        // This creates the "hamburger" icon and links it to the drawer
+        // This creates the sidebar (Three Lines) icon and links it to the drawer
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(android.R.color.white));
@@ -51,23 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
             if (id == R.id.nav_search) {
                 // Handle Search click
-                SearchView searchView = (SearchView) item.getActionView();
-                searchView.setQueryHint("Search Parking Lots");
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new SearchFragment())
+                        .addToBackStack(null).commit();
 
-                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                    @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-                        filter(newText);
-                        return true;
-                    }
-
-                });
-                return true;
+                getSupportActionBar().setTitle("Search Parking");
             }
              else if (id == R.id.nav_favorites) {
                 // Handle Favorites click
@@ -80,20 +68,5 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawers();
             return true;
         });
-    }
-
-    private void filter(String text) {
-        ArrayList<Lot> filteredlist = new ArrayList<>();
-        for (lot item : lotList) {
-            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
-                filteredlist.add(item);
-            }
-        }
-        LotAdapter.update(filteredlist);
-    }
-
-    public void Updatelist(List<Lot> newlist) {
-        this.lotlist = newlist;
-        LotAdapter.update(newlist);
     }
 }
