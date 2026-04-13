@@ -1,6 +1,6 @@
-Demo – Parking App (Testing Guide)
+Demo – Parking App JSON (Testing Guide)
 
-This folder contains the demo version of the Parking App. It is used for internal data transfer testing by group members only.
+This folder contains the demo version of the Parking App's Data Transfer Process. It is used for internal data transfer testing by group members only.
 
 
 How to run:
