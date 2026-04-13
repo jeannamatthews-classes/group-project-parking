@@ -43,3 +43,14 @@ Jake Knapp | ID: 1000246 | knappjt@clarkson.edu
 - Reached out to the stakeholder team to coordinate a follow-up meeting.
 - Researched possible API approaches to support communication with the user's camera system.
 - Created an Oracle Cloud account and configured a temporary free-tier virtual machine instance for API testing.
+
+### Apr 5 – Apr 11
+- Researched Django as an alternative backend following Jack's meeting with COSI.
+- Developed a temporary local server that generates and uploads randomized data for testing.
+- Built and tested a Flask API to transfer simulated data between a backend server and Android Studio's phone emulator.
+- Coordinated with the user's group to schedule meetings due to inconsistent email responses on the user's end.
+- Implemented a variable refresh rate in the demo app for simulating real-time updates.
+
+### Apr 12 - Apr 18
+- Improved and expanded JSON data structure to better reflect actual data integration.
+- Uploaded both the demo backend server file and the demo application to GitHub.
