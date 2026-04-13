@@ -1,6 +1,6 @@
 package com.example.jsontest;
 
-//andriod classes
+//android classes
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -18,7 +18,20 @@ import java.net.URL;
 import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity { //home page
-
+    Handler handler = new Handler();
+    int delay = 5000; //5 seconds
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            fetchParkingData();
+            handler.postDelayed(this, delay); //repeat after delay
+        }
+    };
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+    }
     TextView parkingInfoText;
     Button refreshButton;
 
@@ -32,7 +45,7 @@ public class MainActivity extends AppCompatActivity { //home page
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build()); //allow wifi for example
 
-        fetchParkingData(); //loads data as soon as app opened
+        handler.post(runnable); //loads data as soon as app opened
 
         refreshButton.setOnClickListener(v -> fetchParkingData());
     }
