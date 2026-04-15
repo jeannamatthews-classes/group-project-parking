@@ -4,21 +4,20 @@
     android:orientation="vertical"
     android:padding="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <!--  Card 1-->
     <!--  Some of the configuration might change depends on the specific lot-->
-<com.google.android.material.card.MaterialCardView
-    android:id="@+id/lotCardA"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp"
-    app:strokeWidth="4dp"
-    app:strokeColor="@color/lot_high">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lotCardA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/lot_high">
 
 
     <LinearLayout

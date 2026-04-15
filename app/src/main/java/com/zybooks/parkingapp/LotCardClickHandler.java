@@ -38,11 +38,12 @@ public class LotCardClickHandler {
 
         new AlertDialog.Builder(context)
                 .setTitle("Open Map")
+                .setMessage("Do you want to continue Google Maps for:\n\n" + lotName + "?")
                 .setMessage("Do you want to continue Google Maps for:\n" + lotName + "?")
                 .setPositiveButton("Continue", (dialog, which) -> {
 
-                    String url = "https://www.google.com/maps?q="
-                            + latitude + "," + longitude + "(" + lotName + ")";
+                    String url = "https://www.google.com/maps?q=" + latitude +
+                            "," + longitude + "(" + lotName + ")";
 
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     context.startActivity(browserIntent);
