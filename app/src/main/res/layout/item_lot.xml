@@ -32,7 +32,7 @@
             android:id="@+id/textViewLotNameA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lot A (Cheel)"
+            android:text="Cheel Parking Lot"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -56,7 +56,7 @@
     <!--  Some of the configuration might change depends on the specific lot-->
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/lotCardB"
+        android:id="@+id/lotCardF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -76,10 +76,10 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textViewLotNameB"
+                android:id="@+id/textViewLotNameF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lot B (Lot)"
+                android:text="Cheel (Behind) Parking Lot"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -89,7 +89,7 @@
                 android:layout_height="8dp" />
 
             <TextView
-                android:id="@+id/textViewLotStatusB"
+                android:id="@+id/textViewLotStatusF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sample 5/60"
@@ -127,7 +127,7 @@
                 android:id="@+id/textViewLotNameC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lot C (Lot)"
+                android:text="Morehouse Parking Lot"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -174,7 +174,7 @@
                 android:id="@+id/textViewLotNameD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lot D (Lot)"
+                android:text="Woodstock Parking Lot"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -222,7 +222,7 @@
                 android:id="@+id/textViewLotNameE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lot E (Lot)"
+                android:text="Townhouses Parking Lot"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -246,7 +246,7 @@
     <!--  Card 6-->
     <!--  Some of the configuration might change depends on the specific lot-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/lotCardF"
+        android:id="@+id/lotCardB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -266,10 +266,10 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textViewLotNameF"
+                android:id="@+id/textViewLotNameB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lot F (Lot)"
+                android:text="Hamlin-Powers Parking Lot"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -279,7 +279,7 @@
                 android:layout_height="8dp" />
 
             <TextView
-                android:id="@+id/textViewLotStatusF"
+                android:id="@+id/textViewLotStatusB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sample 5/60"
