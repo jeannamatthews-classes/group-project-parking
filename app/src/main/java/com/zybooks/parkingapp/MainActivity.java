@@ -29,14 +29,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
 
+
+
+
         // Set the toolbar so we can add the toggle button
         setSupportActionBar(toolbar);
+
+        new LotCardClickHandler(this);
 
         // This creates the "hamburger" icon and links it to the drawer
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
 
         toggle.syncState();
+
 
         // Handle clicks on the sidebar items
         navigationView.setNavigationItemSelectedListener(item -> {
@@ -63,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public boolean onQueryTextChange(String newText) {
-                        filter(newText);
+//                        filter(newText);
                         return true;
                     }
 
@@ -83,18 +87,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void filter(String text) {
-        ArrayList<Lot> filteredlist = new ArrayList<>();
-        for (Lot item : lotList) {
-            if (item.getLotName().toLowerCase().contains(text.toLowerCase())) {
-                filteredlist.add(item);
-            }
-        }
-        LotAdapter.update(filteredlist);
-    }
 
-    public void Updatelist(List<Lot> newlist) {
-        this.lotlist = newlist;
-        LotAdapter.update(newlist);
-    }
+
+
+
+//    private void filter(String text) {
+//        ArrayList<Lot> filteredlist = new ArrayList<>();
+//        for (Lot item : lotList) {
+//            if (item.getLotName().toLowerCase().contains(text.toLowerCase())) {
+//                filteredlist.add(item);
+//            }
+//        }
+//        LotAdapter.update(filteredlist);
+//    }
+//
+//    public void Updatelist(List<Lot> newlist) {
+//        this.lotlist = newlist;
+//        LotAdapter.update(newlist);
+//    }
 }

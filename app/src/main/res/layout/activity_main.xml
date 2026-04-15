@@ -19,11 +19,18 @@
             android:background="?attr/colorPrimary"
             app:title="Parking App" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewLots"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp" />
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/lotCards"
+                layout="@layout/item_lot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </ScrollView>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

@@ -1,17 +1,19 @@
 package com.zybooks.parkingapp;
 
-import javax.xml.transform.sax.SAXResult;
-
 public class Lot {
     private String lotName;
-    private int lot_number;
-    private int total_lot_number;
+    private int lotnumber;
+    private int totalLotnumber;
 
-    public Lot(String lotName, int lot_number, int total_lot_number) {
+    /**
+     * Constructor for the Lot class
+     */
+    public Lot(String lotName, int lotnumber, int totalLotnumber) {
         this.lotName = lotName;
-        this.lot_number = lot_number;
-        this.total_lot_number = total_lot_number;
+        this.lotnumber = lotnumber;
+        this.totalLotnumber = totalLotnumber;
     }
+
 
     /**
      * Get the name of the lot
@@ -24,8 +26,6 @@ public class Lot {
 
     /**
      * Set the name of the lot
-     *
-     * @param lotName
      */
     public void setLotName(String lotName) {
         this.lotName = lotName;
@@ -33,20 +33,18 @@ public class Lot {
 
     /**
      * getLot_number
-     *
      * @return lot_number
      */
-    public int getLot_number() {
-        return lot_number;
+    public int getLotnumber() {
+        return lotnumber;
     }
 
     /**
      * setLot_number
-     *
-     * @param lot_number
+     * @param lotnumber
      */
-    public void setLot_number(int lot_number) {
-        this.lot_number = lot_number;
+    public void setLotnumber(int lotnumber) {
+        this.lotnumber = lotnumber;
     }
 
     /**
@@ -54,17 +52,17 @@ public class Lot {
      *
      * @return total_lot_number
      */
-    public int getTotal_lot_number() {
-        return total_lot_number;
+    public int getTotalLotnumber() {
+        return totalLotnumber;
     }
 
     /**
      * set total_lot_number
      *
-     * @param total_lot_number
+     * @param totalLotnumber
      */
-    public void setTotal_lot_number(int total_lot_number) {
-        this.total_lot_number = total_lot_number;
+    public void setTotalLotnumber(int totalLotnumber) {
+        this.totalLotnumber = totalLotnumber;
     }
 
     /**
@@ -75,22 +73,19 @@ public class Lot {
      * @return lot number /total number lot
      */
     public String getStatus() {
-        return "Lot Status: " + lot_number + "/" + total_lot_number;
+        return "Lot Status: " + lotnumber + "/" + totalLotnumber;
     }
-
-
 
     /*Optional isFull() and isEmpty() this would be boolean function that check if the lot is full or empty
      */
 
+    // using logic >= for security and testing
     public boolean isFull() {
-
-        // using logic >= for security and testing
-    return lot_number >= total_lot_number;
+    return lotnumber >= totalLotnumber;
     }
 
     public boolean isEmpty() {
 
-        return lot_number == 0;
+        return lotnumber == 0;
     }
 }

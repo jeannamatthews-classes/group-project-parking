@@ -1,4 +1,3 @@
-
 <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -6,19 +5,16 @@
     android:padding="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- clarkson Colors in case of need it
-
-    "clarkson yellow" = #FFCD00
-    "clarkson green" =  #004e42
-
-    -->
     <!--  Card 1-->
     <!--  Some of the configuration might change depends on the specific lot-->
 <com.google.android.material.card.MaterialCardView
-    android:id="@+id/lotCard"
+    android:id="@+id/lotCardA"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
     app:strokeWidth="4dp"
@@ -33,7 +29,7 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/textViewLotName"
+            android:id="@+id/textViewLotNameA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lot A (Cheel)"
@@ -46,7 +42,7 @@
             android:layout_height="8dp" />
 
         <TextView
-            android:id="@+id/textViewLotStatus"
+            android:id="@+id/textViewLotStatusA"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
             android:text="5/60"
@@ -60,11 +56,12 @@
     <!--  Some of the configuration might change depends on the specific lot-->
 
     <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/lotCard"
+        android:id="@+id/lotCardB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_margin="8dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
@@ -79,7 +76,7 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textViewLotName"
+                android:id="@+id/textViewLotNameB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lot B (Lot)"
@@ -92,7 +89,7 @@
                 android:layout_height="8dp" />
 
             <TextView
-                android:id="@+id/textViewLotStatus"
+                android:id="@+id/textViewLotStatusB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sample 5/60"
@@ -107,9 +104,12 @@
     <com.google.android.material.card.MaterialCardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/lotCard"
+        android:id="@+id/lotCardC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_margin="8dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
@@ -124,7 +124,7 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textViewLotName"
+                android:id="@+id/textViewLotNameC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lot C (Lot)"
@@ -137,7 +137,7 @@
                 android:layout_height="8dp" />
 
             <TextView
-                android:id="@+id/textViewLotStatus"
+                android:id="@+id/textViewLotStatusC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sample 5/60"
@@ -151,10 +151,11 @@
     <!--  Card 4-->
     <!--  Some of the configuration might change depends on the specific lot-->
     <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/lotCard"
+        android:id="@+id/lotCardD"
         android:layout_width="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="12dp"
@@ -170,7 +171,7 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textViewLotName"
+                android:id="@+id/textViewLotNameD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lot D (Lot)"
@@ -183,7 +184,7 @@
                 android:layout_height="8dp" />
 
             <TextView
-                android:id="@+id/textViewLotStatus"
+                android:id="@+id/textViewLotStatusD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sample 5/60"
@@ -197,13 +198,15 @@
     <!--  Card 5-->
     <!--  Some of the configuration might change depends on the specific lot-->
     <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/lotCard"
+        android:id="@+id/lotCardE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:cardElevation="4dp"
         app:strokeWidth="4dp"
         app:strokeColor="@color/lot_high">
@@ -216,7 +219,7 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textViewLotName"
+                android:id="@+id/textViewLotNameE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lot E (Lot)"
@@ -229,7 +232,7 @@
                 android:layout_height="8dp" />
 
             <TextView
-                android:id="@+id/textViewLotStatus"
+                android:id="@+id/textViewLotStatusE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sample 5/60"
@@ -243,11 +246,12 @@
     <!--  Card 6-->
     <!--  Some of the configuration might change depends on the specific lot-->
     <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/lotCard"
+        android:id="@+id/lotCardF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_margin="8dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
@@ -262,7 +266,7 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textViewLotName"
+                android:id="@+id/textViewLotNameF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lot F (Lot)"
@@ -275,7 +279,7 @@
                 android:layout_height="8dp" />
 
             <TextView
-                android:id="@+id/textViewLotStatus"
+                android:id="@+id/textViewLotStatusF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sample 5/60"
