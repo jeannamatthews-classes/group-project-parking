@@ -16,4 +16,9 @@
     </style>
 
     <style name="Theme.ParkingApp" parent="Base.Theme.ParkingApp" />
+
+    <style name="WhiteTextSearchView">
+        <item name="android:editTextColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+    </style>
 </resources>

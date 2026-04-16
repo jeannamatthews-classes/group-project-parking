@@ -6,10 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="Home"
+            app:showAsAction="ifRoom|collapseActionView"
+            />
+        <item
             android:id="@+id/nav_search"
             android:icon="@drawable/search_icon"
             android:title="Search"
-            app:actionViewClass="androidx.appcompat.widget.SearchView"
             app:showAsAction="ifRoom|collapseActionView" />
         <item
             android:id="@+id/nav_favorites"
