@@ -6,7 +6,7 @@
     <color name="gold">#ffcd00</color>
     <color name="green2">#7a9a01</color>
     <color name="lot_high">#ff0000</color>
-    <color name="lot_medium">#ffff00</color>
+    <color name="lot_mid">#ffff00</color>
     <color name="lot_low">#28D743</color>
     <color name="background_gradient_start">#000000</color>
     <color name="background_gradient_end">#DDDDDD</color>

@@ -15,12 +15,27 @@ public class Lot {
     }
 
 
+
+
+
+
+
+
     /**
      * Get the name of the lot
      *
      * @return lot name
      */
     public String getLotName() {
+        return lotName;
+    }
+
+    /**
+     * Get the ID of the lot (using name as ID)
+     *
+     * @return lot name
+     */
+    public String getLotId() {
         return lotName;
     }
 
@@ -67,13 +82,13 @@ public class Lot {
 
     /**
      * Get Status of the lot is the method that
-     * provide how many spot are avaliable in the lot
+     * provide how many spot are available in the lot
      * out of the full capacity
      *
      * @return lot number /total number lot
      */
     public String getStatus() {
-        return "Lot Status: " + lotnumber + "/" + totalLotnumber;
+        return  lotnumber + " / " + totalLotnumber;
     }
 
     /*Optional isFull() and isEmpty() this would be boolean function that check if the lot is full or empty
