@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
+
+
         // Handle clicks on the sidebar items
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();

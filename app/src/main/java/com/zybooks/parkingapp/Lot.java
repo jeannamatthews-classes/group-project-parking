@@ -1,25 +1,22 @@
 package com.zybooks.parkingapp;
 
+import java.util.Map;
 public class Lot {
     private String lotName;
     private int lotnumber;
     private int totalLotnumber;
 
+    private double[] location;
+
     /**
      * Constructor for the Lot class
      */
-    public Lot(String lotName, int lotnumber, int totalLotnumber) {
+    public Lot(String lotName, int lotnumber, int totalLotnumber , double lat, double lon) {
         this.lotName = lotName;
         this.lotnumber = lotnumber;
         this.totalLotnumber = totalLotnumber;
+        this.location = new double[]{lat,lon};
     }
-
-
-
-
-
-
-
 
     /**
      * Get the name of the lot
@@ -38,6 +35,19 @@ public class Lot {
     public String getLotId() {
         return lotName;
     }
+
+    public double[] getLocation() {
+        return location;
+    }
+
+    /**
+     * Set the location of the lot
+     * @return location
+     */
+    public void setLocation(double[] location) {
+        this.location = location;
+    }
+
 
     /**
      * Set the name of the lot

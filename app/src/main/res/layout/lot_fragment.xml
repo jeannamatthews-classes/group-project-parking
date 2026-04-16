@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#004D40"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/detailLotName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/detailLotUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#B2DFDB"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnGoogleMaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Navigate with Google Maps"
+        android:backgroundTint="#FFC107"
+        android:textColor="@android:color/black" />
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Back"
+        android:src="@drawable/back_icon"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@android:color/white" />
+
+</LinearLayout>
