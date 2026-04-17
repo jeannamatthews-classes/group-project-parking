@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class Search_Fragment extends Fragment {
     private ArrayAdapter<String> adapter;
@@ -26,11 +26,11 @@ public class Search_Fragment extends Fragment {
         // 1. Initialize Mock Data (Replace this with a Database/API call later)
         ArrayList<Lot> parkingLots = new ArrayList<>();
         parkingLots.add(new Lot("Cheel Parking Lot", 5, 60, 44.6648034, -75.000313));
-        parkingLots.add(new Lot("Lower Cheel Parking Lot", 5, 60, 44.6644692, -75.0030064));;
+        parkingLots.add(new Lot("Lower Cheel Parking Lot", 5, 60, 44.6644692, -75.0030064));
         parkingLots.add(new Lot("Moore Parking Lot", 5, 60, 44.6629877, -74.9978577));
         parkingLots.add(new Lot("WoodStock Parking Low", 5, 60, 44.6616051, -74.996133));
         parkingLots.add(new Lot("Town Houses Parking Lot", 5, 60, 44.6607585, -75.0015777));
-        parkingLots.add(new Lot("Hamlin-Powers Parking Lot", 5, 60, 44.6647109, -74.994961));;
+        parkingLots.add(new Lot("Hamlin-Powers Parking Lot", 5, 60, 44.6647109, -74.994961));
 
         parkingLocations = new ArrayList<>();
         for (Lot lot : parkingLots) {

@@ -30,7 +30,24 @@ public class Home_Fragment extends Fragment {
         parkingLots.add(new Lot("Hamlin-Powers Parking Lot",5,60,44.6647109,-74.994961));
 
         // Create an adapter for the RecyclerView
-        lot_adapter adapter = new lot_adapter(parkingLots);
+        String savedLotName = SecurePrefs.getString("selected_lot", null);
+        if (savedLotName != null) {
+            // For now we just log it so you can see it working
+            android.util.Log.d("SecurePrefs", "Last selected lot: " + savedLotName);
+        }
+
+        // ─── STEP 2: Pass a click listener into your adapter ──────────────────
+        lot_adapter adapter = new lot_adapter(parkingLots, lot -> {
+
+            // This runs when the user taps a lot card
+            SecurePrefs.putString("selected_lot", lot.getLotName());
+            SecurePrefs.putString("parking_start_time", String.valueOf(System.currentTimeMillis()));
+
+            android.util.Log.d("SecurePrefs", "Saved lot: " + lot.getLotName());
+
+            // TODO: navigate to lot detail screen, etc.
+        });
+
         recyclerView.setAdapter(adapter);
 
 

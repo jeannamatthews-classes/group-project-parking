@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -50,6 +52,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        // THIS IS FOR THE COOKIES
+            SecurePrefs.init(this);
+
+        // Save data
+        SecurePrefs.putString("auth_token", "abc123xyz");
+        SecurePrefs.putBoolean("is_logged_in", true);
+        SecurePrefs.putInt("user_id", 42);
+
+// Read data
+        String token    = SecurePrefs.getString("auth_token", null);
+        boolean loggedIn = SecurePrefs.getBoolean("is_logged_in", false);
+        int userId      = SecurePrefs.getInt("user_id", -1);
+
+// Clear everything
+        SecurePrefs.clear();
 
         // Handle clicks on the sidebar items
         navigationView.setNavigationItemSelectedListener(item -> {

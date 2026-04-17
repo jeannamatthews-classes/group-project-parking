@@ -5,7 +5,6 @@ public class Lot {
     private String lotName;
     private int lotnumber;
     private int totalLotnumber;
-
     private double[] location;
 
     /**
@@ -42,7 +41,7 @@ public class Lot {
 
     /**
      * Set the location of the lot
-     * @return location
+     * @param location
      */
     public void setLocation(double[] location) {
         this.location = location;
@@ -113,4 +112,5 @@ public class Lot {
 
         return lotnumber == 0;
     }
+
 }

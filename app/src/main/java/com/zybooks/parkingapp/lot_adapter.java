@@ -12,11 +12,17 @@ import java.util.ArrayList;
 
 public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder> {
 
+    public interface OnLotClickListener {
+        void onLotClick(Lot lot);
+    }
+
     private ArrayList<Lot> lotList;
+    private OnLotClickListener listener;
 
     // Constructor to receive the data from the Fragment
-    public lot_adapter(ArrayList<Lot> lotList) {
-        this.lotList = lotList;
+    public lot_adapter(ArrayList<Lot> lotList, OnLotClickListener listener) {
+        this.lotList  = lotList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -38,6 +44,14 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
         holder.usageTextView.setText(currentLot.getStatus()); // e.g., "5/60"
 
         holder.itemView.setOnClickListener(v -> {
+
+            SecurePrefs.putString("selected_lot_name",  currentLot.getLotName());
+            SecurePrefs.putString("selected_lot_usage", currentLot.getStatus());
+            SecurePrefs.putString("selected_lot_lat",   String.valueOf(location[0]));
+            SecurePrefs.putString("selected_lot_lon",   String.valueOf(location[1]));
+
+
+
             // 1. Get the context (needed to start fragment transactions)
             AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
@@ -75,8 +89,5 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
             nameTextView = itemView.findViewById(R.id.textViewLotName);
             usageTextView = itemView.findViewById(R.id.textViewLotStatus);
         }
-    }
-    public interface OnLotClickListener {
-        void onLotClick(Lot lot);
     }
 }
