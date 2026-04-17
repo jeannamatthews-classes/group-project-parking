@@ -1,6 +1,5 @@
 package com.zybooks.parkingapp;
 
-import java.util.Map;
 public class Lot {
     private String lotName;
     private int lotnumber;

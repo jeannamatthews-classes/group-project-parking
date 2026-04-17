@@ -20,7 +20,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
     private OnLotClickListener listener;
 
     // Constructor to receive the data from the Fragment
-    public lot_adapter(ArrayList<Lot> lotList, OnLotClickListener listener) {
+    public lot_adapter(ArrayList<Lot> lotList) {
         this.lotList  = lotList;
         this.listener = listener;
     }

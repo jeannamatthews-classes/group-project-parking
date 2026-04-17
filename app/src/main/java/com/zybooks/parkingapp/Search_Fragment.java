@@ -55,16 +55,19 @@ public class Search_Fragment extends Fragment {
             }
 
             if (matchedLot != null) {
-                // 3. Prepare the bundle
-                Bundle args = new Bundle();
-                args.putString("lotName", matchedLot.getLotName());
-                args.putString("lotUsage", "Availability: " + matchedLot.getLotnumber() + " / " + matchedLot.getTotalLotnumber());
 
-                // Pass the coordinates from your new Lot object
+                // ─── SAVE TO ENCRYPTED STORAGE ────────────────────────────────────
+                SecurePrefs.putString("selected_lot_name",  matchedLot.getLotName());
+                SecurePrefs.putString("selected_lot_usage", matchedLot.getStatus());
+                SecurePrefs.putString("selected_lot_lat",   String.valueOf(matchedLot.getLocation()[0]));
+                SecurePrefs.putString("selected_lot_lon",   String.valueOf(matchedLot.getLocation()[1]));
+
+                Bundle args = new Bundle();
+                args.putString("lotName",  matchedLot.getLotName());
+                args.putString("lotUsage", "Availability: " + matchedLot.getLotnumber() + " / " + matchedLot.getTotalLotnumber());
                 args.putDouble("lat", matchedLot.getLocation()[0]);
                 args.putDouble("lon", matchedLot.getLocation()[1]);
 
-                // 4. Open the Detail Fragment
                 LotDetailFragment detailFragment = new LotDetailFragment();
                 detailFragment.setArguments(args);
 

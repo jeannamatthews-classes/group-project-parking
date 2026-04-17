@@ -20,9 +20,7 @@ public class SecurePrefs {
                     .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
                     .build();
 
-            prefs = EncryptedSharedPreferences.create(
-                    context,
-                    "secret_prefs",       // name of the encrypted file
+            prefs = EncryptedSharedPreferences.create(context, "secret_prefs",   // name of the encrypted file
                     masterKey,
                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                     EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
