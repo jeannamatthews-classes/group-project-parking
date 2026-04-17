@@ -76,4 +76,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
             usageTextView = itemView.findViewById(R.id.textViewLotStatus);
         }
     }
+    public interface OnLotClickListener {
+        void onLotClick(Lot lot);
+    }
 }
