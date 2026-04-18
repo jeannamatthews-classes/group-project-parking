@@ -22,7 +22,6 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
     // Constructor to receive the data from the Fragment
     public lot_adapter(ArrayList<Lot> lotList) {
         this.lotList  = lotList;
-        this.listener = listener;
     }
 
     @NonNull
@@ -52,24 +51,24 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
 
 
 
-            // 1. Get the context (needed to start fragment transactions)
+            // Get the context
             AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
-            // 2. Create the new fragment
+            //  Create the new fragment
             LotDetailFragment detailFragment = new LotDetailFragment();
 
-            // 3. Pass the data (Name, Usage, etc.) via a Bundle
+            // Pass the data to Bundle
             Bundle args = new Bundle();
             args.putString("lotName", currentLot.getLotName());
             args.putString("lotUsage", currentLot.getStatus());
-            args.putDouble("lat", location[0]); // Double check: Is index 0 latitude?
-            args.putDouble("lon", location[1]); // Double check: Is index 1 longitude?
+            args.putDouble("lat", location[0]);
+            args.putDouble("lon", location[1]);
             detailFragment.setArguments(args);
 
-            // 4. Perform the swap
+            // Swap element
             activity.getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, detailFragment)
-                    .addToBackStack(null) // Allows user to go "Back" to the list
+                    .addToBackStack(null)
                     .commit();
         });
     }

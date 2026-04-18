@@ -1,7 +1,6 @@
 package com.zybooks.parkingapp;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,11 +28,15 @@ public class LotDetailFragment extends Fragment {
         TextView nameTxt = view.findViewById(R.id.detailLotName);
         TextView usageTxt = view.findViewById(R.id.detailLotUsage);
         Button mapsBtn = view.findViewById(R.id.btnGoogleMaps);
+        Button addFavBtn = view.findViewById(R.id.Favorites);
+        Button removeFavBtn = view.findViewById(R.id.Remove_Favorites);
 
         if (getArguments() != null) {
             String name = getArguments().getString("lotName");
             nameTxt.setText(name);
             usageTxt.setText("Availability: " + getArguments().getString("lotUsage"));
+
+
 
             mapsBtn.setOnClickListener(v -> {
                 new androidx.appcompat.app.AlertDialog.Builder(getContext())
@@ -64,4 +67,5 @@ public class LotDetailFragment extends Fragment {
         }
         return view;
     }
+
 }

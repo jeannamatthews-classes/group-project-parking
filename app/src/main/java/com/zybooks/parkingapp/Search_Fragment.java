@@ -56,7 +56,7 @@ public class Search_Fragment extends Fragment {
 
             if (matchedLot != null) {
 
-                // ─── SAVE TO ENCRYPTED STORAGE ────────────────────────────────────
+                // SAVE TO ENCRYPTED STORAGE
                 SecurePrefs.putString("selected_lot_name",  matchedLot.getLotName());
                 SecurePrefs.putString("selected_lot_usage", matchedLot.getStatus());
                 SecurePrefs.putString("selected_lot_lat",   String.valueOf(matchedLot.getLocation()[0]));
