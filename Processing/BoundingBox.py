@@ -1,3 +1,6 @@
+"""
+A BoundingBox is a quadilateral polygon. It consists of exactly four points forming an enclosed shape.
+"""
 class BoundingBox:
     # Points (x,y)
     top_right = None
@@ -11,6 +14,15 @@ class BoundingBox:
     y_max = None
 
     def __init__(self, point1, point2, point3, point4):
+        """
+        Constructs a BoundingBox object. Points can be passed in any order.
+
+        Parameters:
+            point1 (double, double) : The first of the four points.
+            point2 (double, double) : The second of the four points.
+            point3 (double, double) : The third of the four points.
+            point4 (double, double) : The fourth of the four points.
+        """
         points = [point1, point2, point3, point4]
         best_fit = None
 
@@ -26,14 +38,15 @@ class BoundingBox:
         self.top_right = best_fit
         points.remove(best_fit)
 
+        #### Quick interlude to deduce the minimum and max ranges of the bounds ####
+
+        # Initialize ranges to first point found
         self.x_min = best_fit[0]
         self.x_max = best_fit[0]
         self.y_min = best_fit[1]
         self.y_max = best_fit[1]
 
-        best_fit = None
-
-        # Iterate through all points to find x and y ranges
+        # Iterate through all points to find correct x and y ranges
         for point in points:
             if(point[0] < self.x_min):
                 self.x_min = point[0]
@@ -46,6 +59,10 @@ class BoundingBox:
 
             if(point[1] > self.y_max):
                 self.y_max = point[1]
+
+        ############################################################################
+
+        best_fit = None
 
         # Find which point is top left
         for point in points:
@@ -77,6 +94,15 @@ class BoundingBox:
         self.bottom_right = points[0]
 
     def is_intersecting(self, bounds):
+        """
+        Determines whether these bounds have any intersection with the given bounds
+
+        Parameters:
+            bounds (BoundingBox) : the bounds with which to compare.
+
+        Returns:
+            True if the given bounds intersect, False otherwise.
+        """
         x_overlap = ((self.x_min <= bounds.x_min and self.x_max >= bounds.x_min) 
                      or (self.x_min <= bounds.x_max) and self.x_max >= bounds.x_max)
         y_overlap = ((self.y_min <= bounds.y_min and self.y_max >= bounds.y_min)
@@ -85,14 +111,16 @@ class BoundingBox:
         return x_overlap and y_overlap
     
     def contains(self, bounds):
+        """
+        Determines whether these bounds completely contain the given bounds.
+
+        Parameters:
+            bounds (BoundingBox) : the bounds with which to compare.
+
+        Returns:
+            True if the given bounds reside entirely within this object, False otherwise.
+        """
         return (self.x_min <= bounds.x_min
                 and self.x_max >= bounds.x_max
                 and self.y_min <= bounds.y_min
                 and self.y_max >= bounds.y_max)
-    
-    def print(self):
-        print("Top right    : " + "(" + str(self.top_right[0]) + ", " + str(self.top_right[1]) + ")")
-        print("Top left     : " + "(" + str(self.top_left[0]) + ", " + str(self.top_left[1]) + ")")
-        print("Bottom left  : " + "(" + str(self.bottom_left[0]) + ", " + str(self.bottom_left[1]) + ")")
-        print("Bottom right : " + "(" + str(self.bottom_right[0]) + ", " + str(self.bottom_right[1]) + ")")
-        return
