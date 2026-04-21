@@ -42,3 +42,14 @@ Yohansel Garcia / ID: 1003535 / garciapy@clarkson.edu
 *  Start implementing cookies if you have more time.
 *  Look into implementing the swap to Google Maps for directions, "Do you want to go to Google Maps to go to this parking lot? Link to the directions." 
 
+4/14/2026
+
+* Finish implementing the lot cards buttons / transferring the screen into the specified lot.
+*  Start implementing cookies if you have more time.
+*  Look into implementing the swap to Google Maps for directions, "Do you want to go to Google Maps to go to this parking lot? Link to the directions." 
+
+Presentation week 
+
+* Implements Favorite + Recents Part of the app as well as the Secured Preferences(Cookies).
+* Work on the slides + Practice Presentation on Wednesday.
+
