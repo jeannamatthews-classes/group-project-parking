@@ -29,8 +29,7 @@ public class Home_Fragment extends Fragment {
         parkingLots.add(new Lot("Town Houses Parking Lot",5,60,44.6607585,-75.0015777));
         parkingLots.add(new Lot("Hamlin-Powers Parking Lot",5,60,44.6647109,-74.994961));
 
-
-          lot_adapter adapter = new lot_adapter(parkingLots);
+        lot_adapter adapter = new lot_adapter(parkingLots);
 
 
         recyclerView.setAdapter(adapter);

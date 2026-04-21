@@ -71,6 +71,10 @@ public class Search_Fragment extends Fragment {
                 LotDetailFragment detailFragment = new LotDetailFragment();
                 detailFragment.setArguments(args);
 
+                // RECENT ADD
+                Recents_Manager.addRecent(matchedLot.getLotName());
+
+
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, detailFragment)
                         .addToBackStack(null)

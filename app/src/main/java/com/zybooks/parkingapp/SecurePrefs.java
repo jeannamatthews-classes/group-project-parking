@@ -9,6 +9,9 @@ import androidx.security.crypto.MasterKey;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SecurePrefs {
 
     private static SharedPreferences prefs;
@@ -53,6 +56,8 @@ public class SecurePrefs {
         return prefs.getBoolean(key, defaultValue);
     }
 
+
+    // DOES ARE METHODS THAT WE USE just in case
     public static int getInt(String key, int defaultValue) {
         return prefs.getInt(key, defaultValue);
     }
@@ -60,5 +65,19 @@ public class SecurePrefs {
     // Clear everything
     public static void clear() {
         prefs.edit().clear().apply();
+    }
+
+
+// Add these to SecurePrefs.java
+
+    public static void putStringSet(String key, Set<String> value) {
+        prefs.edit().putStringSet(key, new HashSet<>(value)).apply();
+    }
+
+    public static Set<String> getStringSet(String key, Set<String> defaultValue) {
+        Set<String> result = prefs.getStringSet(key, defaultValue);
+        return result != null ? new HashSet<>(result) : new HashSet<>(defaultValue);
+        // We wrap in a new HashSet because EncryptedSharedPreferences returns
+        // an unmodifiable reference — editing it directly would cause a crash
     }
 }

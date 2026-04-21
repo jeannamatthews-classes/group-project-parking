@@ -1,21 +1,13 @@
 package com.zybooks.parkingapp;
 
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.SearchView;
-import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -66,12 +58,21 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             }
             else if (id == R.id.nav_favorites) {
-                selectedFragment = null;
-                // Handle Favorites click
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new Favorites_Fragment())
+                        .addToBackStack(null)
+                        .commit();
+
+                // Handle Recent click it open the favorites
             }
             else if (id == R.id.nav_recent) {
-                selectedFragment = null;
-                // Handle Recent click
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new Recents_Fragment())
+                        .addToBackStack(null)
+                        .commit();
+                // Handle Recent click it open the recents
             }
 
             if (selectedFragment != null) {

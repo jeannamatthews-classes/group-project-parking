@@ -13,6 +13,16 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 public class LotDetailFragment extends Fragment {
+
+
+
+
+    private void updateFavButtons(String lotName, Button addBtn, Button removeBtn) {
+        boolean fav = Favorites_Manager.isFavorite(lotName);
+        addBtn.setVisibility(fav ? View.GONE : View.VISIBLE);
+        removeBtn.setVisibility(fav ? View.VISIBLE : View.GONE);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.lot_fragment, container, false);
@@ -30,6 +40,10 @@ public class LotDetailFragment extends Fragment {
         Button mapsBtn = view.findViewById(R.id.btnGoogleMaps);
         Button addFavBtn = view.findViewById(R.id.Favorites);
         Button removeFavBtn = view.findViewById(R.id.Remove_Favorites);
+
+
+
+
 
         if (getArguments() != null) {
             String name = getArguments().getString("lotName");
@@ -64,8 +78,29 @@ public class LotDetailFragment extends Fragment {
                         .setNegativeButton("No", null)
                         .show();
             });
+
+
+            // ADDING AND REMOVING FAVORITES
+
+            // UPDATE
+            updateFavButtons(name, addFavBtn, removeFavBtn);
+
+            // Handle for when the favorite bottom is clicked
+            addFavBtn.setOnClickListener(v -> {
+                Favorites_Manager.addFavorite(name);
+                updateFavButtons(name, addFavBtn, removeFavBtn);
+                android.widget.Toast.makeText(getContext(), name + " added to favorites!", android.widget.Toast.LENGTH_SHORT).show();
+            });
+
+            // Handle for when the remove bottom is clicked
+            removeFavBtn.setOnClickListener(v -> {
+                Favorites_Manager.removeFavorite(name);
+                updateFavButtons(name, addFavBtn, removeFavBtn);
+                android.widget.Toast.makeText(getContext(), name + " removed from favorites.", android.widget.Toast.LENGTH_SHORT).show();
+            });
         }
         return view;
     }
+
 
 }

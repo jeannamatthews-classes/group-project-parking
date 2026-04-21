@@ -50,6 +50,8 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
             SecurePrefs.putString("selected_lot_lon",   String.valueOf(location[1]));
 
 
+            // Recent get the name of the Lot Name
+            Recents_Manager.addRecent(currentLot.getLotName());
 
             // Get the context
             AppCompatActivity activity = (AppCompatActivity) v.getContext();
@@ -57,7 +59,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
             //  Create the new fragment
             LotDetailFragment detailFragment = new LotDetailFragment();
 
-            // Pass the data to Bundle
+            // Pass the data in the bundle
             Bundle args = new Bundle();
             args.putString("lotName", currentLot.getLotName());
             args.putString("lotUsage", currentLot.getStatus());
