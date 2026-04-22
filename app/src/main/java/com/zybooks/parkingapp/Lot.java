@@ -1,19 +1,35 @@
 package com.zybooks.parkingapp;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Lot {
+    @SerializedName("lot_name")
     private String lotName;
-    private int lotnumber;
-    private int totalLotnumber;
-    private double[] location;
+
+    @SerializedName("used_spaces")
+    private int UsedSpaces;
+
+    @SerializedName("total_spaces")
+    private int TotalSpaces;
+
+    @SerializedName("available_spots")
+    private int AvailaleSpots;
+
+    @SerializedName("camera_id")
+    private int CamId;
+    private double latitude;
+
+    private double longitude;
 
     /**
      * Constructor for the Lot class
      */
-    public Lot(String lotName, int lotnumber, int totalLotnumber , double lat, double lon) {
+    public Lot(String lotName, int UsedSpaces, int TotalSpaces , double lat, double lon) {
         this.lotName = lotName;
-        this.lotnumber = lotnumber;
-        this.totalLotnumber = totalLotnumber;
-        this.location = new double[]{lat,lon};
+        this.UsedSpaces = UsedSpaces;
+        this.TotalSpaces = TotalSpaces;
+        this.latitude = lat;
+        this.longitude = lon;
     }
 
     /**
@@ -34,17 +50,24 @@ public class Lot {
         return lotName;
     }
 
-    public double[] getLocation() {
-        return location;
+    public double getLatitude() {
+        return latitude;
     }
 
-    /**
-     * Set the location of the lot
-     * @param location
-     */
-    public void setLocation(double[] location) {
-        this.location = location;
+    public double getLongitude() {
+        return longitude;
     }
+    /**
+     * Set the latitude of the lot
+     * @param latitude
+     */
+    public void setLatitude(double latitude){this.latitude = latitude;}
+
+    /**
+     * Set the longitude of the lot
+     * @param longitude
+     */
+    public void setLongitude(double longitude){this.longitude = longitude;}
 
 
     /**
@@ -59,7 +82,7 @@ public class Lot {
      * @return lot_number
      */
     public int getLotnumber() {
-        return lotnumber;
+        return UsedSpaces;
     }
 
     /**
@@ -67,7 +90,7 @@ public class Lot {
      * @param lotnumber
      */
     public void setLotnumber(int lotnumber) {
-        this.lotnumber = lotnumber;
+        this.UsedSpaces = lotnumber;
     }
 
     /**
@@ -76,7 +99,7 @@ public class Lot {
      * @return total_lot_number
      */
     public int getTotalLotnumber() {
-        return totalLotnumber;
+        return TotalSpaces;
     }
 
     /**
@@ -85,7 +108,7 @@ public class Lot {
      * @param totalLotnumber
      */
     public void setTotalLotnumber(int totalLotnumber) {
-        this.totalLotnumber = totalLotnumber;
+        this.TotalSpaces = totalLotnumber;
     }
 
     /**
@@ -96,7 +119,7 @@ public class Lot {
      * @return lot number /total number lot
      */
     public String getStatus() {
-        return  lotnumber + " / " + totalLotnumber;
+        return  UsedSpaces + " / " + TotalSpaces;
     }
 
     /*Optional isFull() and isEmpty() this would be boolean function that check if the lot is full or empty
@@ -104,12 +127,12 @@ public class Lot {
 
     // using logic >= for security and testing
     public boolean isFull() {
-        return lotnumber >= totalLotnumber;
+        return UsedSpaces >= TotalSpaces;
     }
 
     public boolean isEmpty() {
 
-        return lotnumber == 0;
+        return UsedSpaces == 0;
     }
 
 }

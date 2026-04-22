@@ -16,13 +16,19 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
         void onLotClick(Lot lot);
     }
 
-    private ArrayList<Lot> lotList;
+    private ArrayList<Lot> LotList;
     private OnLotClickListener listener;
 
     // Constructor to receive the data from the Fragment
     public lot_adapter(ArrayList<Lot> lotList) {
-        this.lotList  = lotList;
+        this.LotList  = lotList;
     }
+
+    public void UpdateData( ArrayList<Lot> NewList) {
+        this.LotList = NewList;
+        notifyDataSetChanged();
+    }
+
 
     @NonNull
     @Override
@@ -35,8 +41,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
     @Override
     public void onBindViewHolder(@NonNull LotViewHolder holder, int position) {
         // Get the specific lot for this row
-        Lot currentLot = lotList.get(position);
-        double[] location = currentLot.getLocation();
+        Lot currentLot = LotList.get(position);
 
         // Set the text from your Lot object to the TextViews
         holder.nameTextView.setText(currentLot.getLotName());
@@ -46,8 +51,8 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
 
             SecurePrefs.putString("selected_lot_name",  currentLot.getLotName());
             SecurePrefs.putString("selected_lot_usage", currentLot.getStatus());
-            SecurePrefs.putString("selected_lot_lat",   String.valueOf(location[0]));
-            SecurePrefs.putString("selected_lot_lon",   String.valueOf(location[1]));
+            SecurePrefs.putString("selected_lot_lat",   String.valueOf(currentLot.getLatitude()));
+            SecurePrefs.putString("selected_lot_lon",   String.valueOf(currentLot.getLongitude()));
 
 
             // Recent get the name of the Lot Name
@@ -63,8 +68,8 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
             Bundle args = new Bundle();
             args.putString("lotName", currentLot.getLotName());
             args.putString("lotUsage", currentLot.getStatus());
-            args.putDouble("lat", location[0]);
-            args.putDouble("lon", location[1]);
+            args.putDouble("lat",currentLot.getLatitude() );
+            args.putDouble("lon", currentLot.getLongitude());
             detailFragment.setArguments(args);
 
             // Swap element
@@ -77,7 +82,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
 
     @Override
     public int getItemCount() {
-        return lotList.size();
+        return LotList.size();
     }
 
     // This class finds the views inside item_lot.xml

@@ -20,18 +20,14 @@ public class Home_Fragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //Parking Lots Data
-        ArrayList<Lot> parkingLots = new ArrayList<>();
-        parkingLots.add(new Lot("Cheel Parking Lot",5,60,44.6648034,-75.000313));
-        parkingLots.add(new Lot("Lower Cheel Parking Lot",5,60,44.6644692,-75.0030064));;
-        parkingLots.add(new Lot("Moore Parking Lot",5,60,44.6629877,-74.9978577));
-        parkingLots.add(new Lot("WoodStock Parking Low",5,60,44.6616051,-74.996133));
-        parkingLots.add(new Lot("Town Houses Parking Lot",5,60,44.6607585,-75.0015777));
-        parkingLots.add(new Lot("Hamlin-Powers Parking Lot",5,60,44.6647109,-74.994961));
 
-        lot_adapter adapter = new lot_adapter(parkingLots);
+        // 1. Get the shared data from the repository
+        ArrayList<Lot> dataForAdapter = ParkingRepository.getInstance().getParkingLots();
 
+        // 2. Give that data to the adapter
+        lot_adapter adapter = new lot_adapter(dataForAdapter);
 
+        // 3. Attach to the RecyclerView that exists in THIS fragment
         recyclerView.setAdapter(adapter);
 
 

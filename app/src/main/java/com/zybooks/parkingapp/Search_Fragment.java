@@ -23,14 +23,12 @@ public class Search_Fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.search_fragment, container, false);
 
-        // 1. Initialize Mock Data (Replace this with a Database/API call later)
-        ArrayList<Lot> parkingLots = new ArrayList<>();
-        parkingLots.add(new Lot("Cheel Parking Lot", 5, 60, 44.6648034, -75.000313));
-        parkingLots.add(new Lot("Lower Cheel Parking Lot", 5, 60, 44.6644692, -75.0030064));
-        parkingLots.add(new Lot("Moore Parking Lot", 5, 60, 44.6629877, -74.9978577));
-        parkingLots.add(new Lot("WoodStock Parking Low", 5, 60, 44.6616051, -74.996133));
-        parkingLots.add(new Lot("Town Houses Parking Lot", 5, 60, 44.6607585, -75.0015777));
-        parkingLots.add(new Lot("Hamlin-Powers Parking Lot", 5, 60, 44.6647109, -74.994961));
+        // 1. Get the shared data from the repository
+        ArrayList<Lot> parkingLots = ParkingRepository.getInstance().getParkingLots();
+
+        // 2. Give that data to the adapter
+
+        // 3. Attach to the RecyclerView that exists in THIS fragment
 
         parkingLocations = new ArrayList<>();
         for (Lot lot : parkingLots) {
@@ -59,14 +57,14 @@ public class Search_Fragment extends Fragment {
                 // SAVE TO ENCRYPTED STORAGE
                 SecurePrefs.putString("selected_lot_name",  matchedLot.getLotName());
                 SecurePrefs.putString("selected_lot_usage", matchedLot.getStatus());
-                SecurePrefs.putString("selected_lot_lat",   String.valueOf(matchedLot.getLocation()[0]));
-                SecurePrefs.putString("selected_lot_lon",   String.valueOf(matchedLot.getLocation()[1]));
+                SecurePrefs.putString("selected_lot_lat",   String.valueOf(matchedLot.getLatitude()));
+                SecurePrefs.putString("selected_lot_lon",   String.valueOf(matchedLot.getLongitude()));
 
                 Bundle args = new Bundle();
                 args.putString("lotName",  matchedLot.getLotName());
                 args.putString("lotUsage", "Availability: " + matchedLot.getLotnumber() + " / " + matchedLot.getTotalLotnumber());
-                args.putDouble("lat", matchedLot.getLocation()[0]);
-                args.putDouble("lon", matchedLot.getLocation()[1]);
+                    args.putDouble("lat", matchedLot.getLatitude());
+                    args.putDouble("lon", matchedLot.getLongitude());
 
                 LotDetailFragment detailFragment = new LotDetailFragment();
                 detailFragment.setArguments(args);

@@ -7,7 +7,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -15,10 +23,27 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
+
+    //Gather data from the database
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String jsonResponse = "[{\"lot_name\": \"Cheel Parking Lot\", \"available_spots\": 276, \"total_spaces\": 305}]";
+
+        Gson gson = new Gson();
+        Type ListType = new TypeToken<ArrayList<Lot>>(){}.getType();
+
+        List<Lot> tempLots = gson.fromJson(jsonResponse, ListType);
+        if (tempLots != null) {
+            ArrayList<Lot> parkinglots = new ArrayList<>(tempLots);
+            ParkingRepository.getInstance().setParkingLots(parkinglots);
+        }
 
 
 
