@@ -38,11 +38,12 @@ def parking_status():
 
         rows = cursor.fetchall()
 
-        # format response for Android
         result = []
+
         for row in rows:
             total = row["total_spaces"]
             used = row["used_spaces"]
+            available = max(total - used, 0)
 
             result.append({
                 "camera_id": row["camera_id"],
@@ -51,7 +52,7 @@ def parking_status():
                 "longitude": row["longitude"],
                 "total_spaces": total,
                 "used_spaces": used,
-                "available_spots": total - used
+                "available_spots": available
             })
 
         cursor.close()

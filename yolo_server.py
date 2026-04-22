@@ -47,12 +47,11 @@ def process_image():
         cursor = db.cursor()
 
         cursor.execute("""
-            INSERT INTO parking_status (camera_id, used_spaces, total_spaces)
-            VALUES (%s, %s, %s)
+            INSERT INTO parking_status (camera_id, used_spaces)
+            VALUES (%s, %s)
             ON DUPLICATE KEY UPDATE
-                used_spaces = VALUES(used_spaces),
-                total_spaces = VALUES(total_spaces)
-        """, (1, used_spaces, total_spaces))
+                used_spaces = VALUES(used_spaces)
+        """, (1, used_spaces))
 
         db.commit()
         cursor.close()
