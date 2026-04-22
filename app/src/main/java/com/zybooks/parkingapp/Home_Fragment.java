@@ -13,26 +13,26 @@ import java.util.ArrayList;
 public class Home_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Use a simple layout for now, like home_fragment.xml
+        // Use a simple layout for now
         View view = inflater.inflate(R.layout.home_fragment, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_home);
+        ServerHandler.fetchParkingStatus(new ServerHandler.JsonCallback() {
+            @Override
+            public void onSuccess(String json) {
+                requireActivity().runOnUiThread(() -> {
+                    // send data to ui?
+                    ((MainActivity) requireActivity()).setParkingJson(json);
+                    System.out.println(json); //delete after testing
+                });
+            }
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        //Parking Lots Data
-        ArrayList<Lot> parkingLots = new ArrayList<>();
-        parkingLots.add(new Lot("Cheel Parking Lot",5,60,44.6648034,-75.000313));
-        parkingLots.add(new Lot("Lower Cheel Parking Lot",5,60,44.6644692,-75.0030064));;
-        parkingLots.add(new Lot("Moore Parking Lot",5,60,44.6629877,-74.9978577));
-        parkingLots.add(new Lot("WoodStock Parking Low",5,60,44.6616051,-74.996133));
-        parkingLots.add(new Lot("Town Houses Parking Lot",5,60,44.6607585,-75.0015777));
-        parkingLots.add(new Lot("Hamlin-Powers Parking Lot",5,60,44.6647109,-74.994961));
-
-        lot_adapter adapter = new lot_adapter(parkingLots);
-
-
-        recyclerView.setAdapter(adapter);
+            @Override
+            public void onError(String error) {
+                requireActivity().runOnUiThread(() -> {
+                    System.out.println("ERROR: " + error);
+                });
+            }
+        });
 
 
         return view;

@@ -9,11 +9,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private String parkingJson;
+    public void setParkingJson(String json) {
+        this.parkingJson = json;
+    }
+    public String getParkingJson() {
+        return parkingJson;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
