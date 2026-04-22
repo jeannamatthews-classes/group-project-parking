@@ -16,6 +16,9 @@ def get_db():
 
 # -------------------------
 # GET FULL LOT STATUS
+# combines two seperate tables from the database
+# l. preface the fixed variables pulled from parking_lots
+# s. preface the dynamic variables pulled from parking_status
 # -------------------------
 @app.route("/parking-status", methods=["GET"])
 def parking_status():

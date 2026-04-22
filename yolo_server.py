@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+
 from ultralytics import YOLO
 from CameraManager import CameraManager
 import tempfile
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
@@ -56,6 +58,9 @@ def process_image():
         db.commit()
         cursor.close()
         db.close()
+
+        
+        os.remove(tmp_path)
 
         # -------------------------
         # 4. RESPONSE

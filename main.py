@@ -1,3 +1,4 @@
+#run tests by changing the .jpg 
 import requests
 
 url = "http://localhost:5000/process"

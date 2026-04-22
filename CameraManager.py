@@ -1,3 +1,6 @@
+# joshes code responsible for processing images
+# called from yolo_server to process
+
 import ParkingSpot
 import BoundingBox
 
