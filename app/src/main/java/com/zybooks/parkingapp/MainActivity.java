@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
                 runOnUiThread(() -> {
                     parkingJson = json; // store it here
-                    System.out.println(parkingJson);
+                    //System.out.println(parkingJson);
                 });
             }
 
