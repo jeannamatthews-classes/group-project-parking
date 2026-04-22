@@ -17,7 +17,7 @@ public class LotDetailFragment extends Fragment {
 
 
 
-    private void updateFavButtons(String lotName, Button addBtn, Button removeBtn) {
+    private void updateFavButtons(String lotName, ImageButton addBtn, ImageButton removeBtn) {
         boolean fav = Favorites_Manager.isFavorite(lotName);
         addBtn.setVisibility(fav ? View.GONE : View.VISIBLE);
         removeBtn.setVisibility(fav ? View.VISIBLE : View.GONE);
@@ -38,8 +38,8 @@ public class LotDetailFragment extends Fragment {
         TextView nameTxt = view.findViewById(R.id.detailLotName);
         TextView usageTxt = view.findViewById(R.id.detailLotUsage);
         Button mapsBtn = view.findViewById(R.id.btnGoogleMaps);
-        Button addFavBtn = view.findViewById(R.id.Favorites);
-        Button removeFavBtn = view.findViewById(R.id.Remove_Favorites);
+        ImageButton addFavBtn = view.findViewById(R.id.Favorites);
+        ImageButton removeFavBtn = view.findViewById(R.id.Remove_Favorites);
 
 
 

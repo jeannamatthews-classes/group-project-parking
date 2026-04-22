@@ -4,6 +4,10 @@
     <string name="select_item">Select Item</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigate_with_google_maps">Navigate with Google Maps</string>
+    <string name="remove_favorite_star">Remove Favorite star</string>
+    <string name="favorite_star">Favorite Star</string>
+    <string name="back">back</string>
 
     <string-array name="Locations">
         <item>Clarkson</item>
