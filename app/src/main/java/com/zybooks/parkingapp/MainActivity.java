@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private String parkingJson;
+    private String parkingJson; //added getter and setter for json string
     public void setParkingJson(String json) {
         this.parkingJson = json;
     }
@@ -31,6 +31,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ServerHandler.fetchParkingStatus(new ServerHandler.JsonCallback() {
+
+            @Override
+            public void onSuccess(String json) {
+
+                runOnUiThread(() -> {
+                    parkingJson = json; // store it here
+                    System.out.println(parkingJson);
+                });
+            }
+
+            @Override
+            public void onError(String error) {
+
+                runOnUiThread(() -> {
+                    System.out.println("ERROR: " + error);
+                });
+            }
+        });
 
 
 
