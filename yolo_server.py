@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-
 from ultralytics import YOLO
 from CameraManager import CameraManager
 import tempfile
