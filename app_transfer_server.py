@@ -29,7 +29,7 @@ def parking_status():
                 l.lot_name,
                 l.latitude,
                 l.longitude,
-                l.total_spaces,
+                s.total_spaces,
                 COALESCE(s.used_spaces, 0) AS used_spaces
             FROM parking_lots l
             LEFT JOIN parking_status s
