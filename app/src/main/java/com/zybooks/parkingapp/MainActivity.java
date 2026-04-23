@@ -34,11 +34,18 @@ public class MainActivity extends AppCompatActivity {
         ServerHandler.fetchParkingStatus(new ServerHandler.JsonCallback() {
             @Override
             public void onSuccess(String json) {
+                    System.out.println("RAW JSON RESPONSE:");
+                    System.out.println(json);
 
-                runOnUiThread(() -> {
-                    jsonResponse = json; // store it here
-                    //System.out.println(parkingJson);
-                });
+                    Gson gson = new Gson();
+                    Type listType = new TypeToken<ArrayList<Lot>>(){}.getType();
+
+                    List<Lot> tempLots = gson.fromJson(json, listType);
+
+                    if (tempLots != null) {
+                        ParkingRepository.getInstance()
+                                .setParkingLots(new ArrayList<>(tempLots));
+                    }
             }
 
             @Override
@@ -51,14 +58,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Gson gson = new Gson();
-        Type ListType = new TypeToken<ArrayList<Lot>>(){}.getType();
-
-        List<Lot> tempLots = gson.fromJson(jsonResponse, ListType);
-        if (tempLots != null) {
-            ArrayList<Lot> parkinglots = new ArrayList<>(tempLots);
-            ParkingRepository.getInstance().setParkingLots(parkinglots);
-        }
+//        Gson gson = new Gson();
+//        Type ListType = new TypeToken<ArrayList<Lot>>(){}.getType();
+//
+//        List<Lot> tempLots = gson.fromJson(jsonResponse, ListType);
+//        if (tempLots != null) {
+//            ArrayList<Lot> parkinglots = new ArrayList<>(tempLots);
+//            ParkingRepository.getInstance().setParkingLots(parkinglots);
+//        }
 
 
 

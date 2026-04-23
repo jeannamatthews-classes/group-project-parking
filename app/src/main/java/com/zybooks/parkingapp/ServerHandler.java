@@ -16,7 +16,7 @@ public class ServerHandler {
     public static void fetchParkingStatus(JsonCallback callback) {
         new Thread(() -> {
             try {
-                URL url = new URL("http://128.153.144.130:5001/parking-status"); //where connect to machine locally
+                URL url = new URL("http://128.153.199.35:5001/parking-status"); //where connect to machine locally
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
