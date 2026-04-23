@@ -22,10 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-
-
-    //Gather data from the database
-
+    private String jsonResponse;
 
 
 
@@ -34,7 +31,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String jsonResponse = "[{\"lot_name\": \"Cheel Parking Lot\", \"available_spots\": 276, \"total_spaces\": 305}]";
+        ServerHandler.fetchParkingStatus(new ServerHandler.JsonCallback() {
+            @Override
+            public void onSuccess(String json) {
+
+                runOnUiThread(() -> {
+                    jsonResponse = json; // store it here
+                    //System.out.println(parkingJson);
+                });
+            }
+
+            @Override
+            public void onError(String error) {
+
+                runOnUiThread(() -> {
+                    System.out.println("ERROR: " + error);
+                });
+            }
+        });
+
 
         Gson gson = new Gson();
         Type ListType = new TypeToken<ArrayList<Lot>>(){}.getType();
