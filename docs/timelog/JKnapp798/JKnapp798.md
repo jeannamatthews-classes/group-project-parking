@@ -54,3 +54,16 @@ Jake Knapp | ID: 1000246 | knappjt@clarkson.edu
 ### Apr 12 - Apr 18
 - Improved and expanded JSON data structure to better reflect actual data integration.
 - Uploaded both the demo backend server file and the demo application to GitHub.
+- Researched remote access and data transfer using Raspberry Pi.
+- Led meeting with campus maintenance, user group, and their professor to coordinate project requirements and concerns.
+- Worked with the team to define the integration pipeline from Raspberry Pi file transfer to Yolo processing.
+
+### Apr 19 - Apr 25
+- Scheduled a meeting to obtain camera equipment from the user group.
+- Researched database systems, focusing on MySQL and other related options.
+- Installed and configured MySQL and created the initial project database.
+- Integrated Flask API server with a YOLO script for end-to-end testing.
+- Updated demo application to support receiving JSON data from the database.
+- Achieved a fully functional locally hosted demo pipeline: Yolo detection -> database storage -> mobile app display.
+- Researched JSON data transfer over web services.
+- Collaborated with COSI to establish data transfer over their private wifi network.
