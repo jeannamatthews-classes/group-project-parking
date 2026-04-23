@@ -51,11 +51,11 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
         double fullness = (double) currentLot.getFillPercentage();
 
         int strokeColor;
-        if (fullness >= 0.90) {
-            // More than 90% full - Red
+        if (fullness >= 0.70) {
+            // More than 70% full - Red
             strokeColor = androidx.core.content.ContextCompat.getColor(holder.itemView.getContext(), android.R.color.holo_red_dark);
         } else if (fullness >= 0.50) {
-            // Between 50% and 90% - Yellow/Orange
+            // Between 50% and 70% - Yellow/Orange
             strokeColor = androidx.core.content.ContextCompat.getColor(holder.itemView.getContext(), android.R.color.holo_orange_light);
         } else {
             // Less than 50% - Green
