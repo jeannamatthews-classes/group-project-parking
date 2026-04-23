@@ -34,6 +34,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
     @Override
     public LotViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // This links the adapter to your "Card" layout
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lot, parent, false);
         return new LotViewHolder(view);
     }
@@ -46,6 +47,23 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
         // Set the text from your Lot object to the TextViews
         holder.nameTextView.setText(currentLot.getLotName());
         holder.usageTextView.setText(currentLot.getStatus()); // e.g., "5/60"
+
+        double fullness = (double) currentLot.getFillPercentage();
+
+        int strokeColor;
+        if (fullness >= 0.90) {
+            // More than 90% full - Red
+            strokeColor = androidx.core.content.ContextCompat.getColor(holder.itemView.getContext(), android.R.color.holo_red_dark);
+        } else if (fullness >= 0.50) {
+            // Between 50% and 90% - Yellow/Orange
+            strokeColor = androidx.core.content.ContextCompat.getColor(holder.itemView.getContext(), android.R.color.holo_orange_light);
+        } else {
+            // Less than 50% - Green
+            strokeColor = androidx.core.content.ContextCompat.getColor(holder.itemView.getContext(), android.R.color.holo_green_light);
+        }
+
+        // Apply the color to the card outline
+        holder.lotCard.setStrokeColor(strokeColor);
 
         holder.itemView.setOnClickListener(v -> {
 
@@ -90,10 +108,12 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
         TextView nameTextView;
         TextView usageTextView;
 
+        com.google.android.material.card.MaterialCardView lotCard;
         public LotViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.textViewLotName);
             usageTextView = itemView.findViewById(R.id.textViewLotStatus);
+            lotCard = itemView.findViewById(R.id.lotCard);
         }
     }
-}
+    }

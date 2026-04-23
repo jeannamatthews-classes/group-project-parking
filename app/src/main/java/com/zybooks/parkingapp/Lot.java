@@ -135,4 +135,8 @@ public class Lot {
         return UsedSpaces == 0;
     }
 
+    public double getFillPercentage() {
+        if (TotalSpaces == 0) return 0;
+        return (double) UsedSpaces / TotalSpaces;
+    }
 }
