@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private String jsonResponse;
+    private String json;
 
 
 
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ServerHandler.fetchParkingStatus(new ServerHandler.JsonCallback() {
             @Override
             public void onSuccess(String json) {
+                runOnUiThread(() -> {
                     System.out.println("RAW JSON RESPONSE:");
                     System.out.println(json);
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         ParkingRepository.getInstance()
                                 .setParkingLots(new ArrayList<>(tempLots));
                     }
+            });
             }
 
             @Override
