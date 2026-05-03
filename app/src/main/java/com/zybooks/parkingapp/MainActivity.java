@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         ServerHandler.fetchParkingStatus(new ServerHandler.JsonCallback() {
             @Override
             public void onSuccess(String json) {
-                    System.out.println("RAW JSON RESPONSE:");
-                    System.out.println(json);
+                    //System.out.println("RAW JSON RESPONSE:");
+                    //System.out.println(json);
 
                     Gson gson = new Gson();
                     Type listType = new TypeToken<ArrayList<Lot>>(){}.getType();
@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
                         ParkingRepository.getInstance()
                                 .setParkingLots(new ArrayList<>(tempLots));
                     }
+                    runOnUiThread(() -> {
+                        if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) == null) {
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.fragment_container, new Home_Fragment())
+                                    .commit();
+                            navigationView.setCheckedItem(R.id.nav_home);
+                        }});
             }
 
             @Override
