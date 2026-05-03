@@ -67,3 +67,10 @@ Jake Knapp | ID: 1000246 | knappjt@clarkson.edu
 - Achieved a fully functional locally hosted demo pipeline: Yolo detection -> database storage -> mobile app display.
 - Researched JSON data transfer over web services.
 - Collaborated with COSI to establish data transfer over their private wifi network.
+- Week of in-class presentation.
+
+### Apr 26 - May 5th
+- Updated GitHub with the most recent project version.
+- Created a detailed user manual outlining how to host and run a database, demo, and servers on a personal machine.
+- Coordinated between the user group and our team to establish plans for future development beyond the semester.
+- Met individually with each teammate to discuss their interest in continuing the project. 
