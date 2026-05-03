@@ -1,1 +1,16 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=22659653)
+What is included where:
+
+### GitHub
+---
+- Most Current Branch for Pulling: App-For-Demo 
+- Time logs: Main -> docs -> Individual accounts 
+- All versions can be found under the respective branches
+- Processing scripts for YOLOv8
+- Gantt Chart
+
+### Shared Google Drive
+---
+- User Questions, meeting notes, and major interactions between the user group and us.
+- All design documentation
+- Gantt Chart
+- Any other documentation can be found here
