@@ -1,11 +1,18 @@
 #run tests by changing the .jpg 
 import requests
+import sys
 
 url = "http://localhost:5000/process"
 
-files = {"image": open("josh.jpg", "rb")}
+image_file = sys.argv[1]
+json_file = sys.argv[2]
 
-response = requests.post(url, files=files)
+with open(image_file, "rb") as img:
+    files = {"image" : img}
+    data = {"json_file" : json_file}
+    response = requests.post(url, files=files, data=data)
+
+
 
 
 print(response.status_code)
