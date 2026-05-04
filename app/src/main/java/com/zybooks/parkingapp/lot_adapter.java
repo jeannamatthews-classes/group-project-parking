@@ -33,7 +33,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
     @NonNull
     @Override
     public LotViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // This links the adapter to your "Card" layout
+        // This links the adapter to card layout
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lot, parent, false);
         return new LotViewHolder(view);
@@ -44,7 +44,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.LotViewHolder>
         // Get the specific lot for this row
         Lot currentLot = LotList.get(position);
 
-        // Set the text from your Lot object to the TextViews
+        // Set the text from Lot object to the TextViews
         holder.nameTextView.setText(currentLot.getLotName());
         holder.usageTextView.setText(currentLot.getStatus()); // e.g., "5/60"
 

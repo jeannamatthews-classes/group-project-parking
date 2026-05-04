@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Home_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Use a simple layout for now, like home_fragment.xml
+        // Home fragment layout
         View view = inflater.inflate(R.layout.home_fragment, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler_home);

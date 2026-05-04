@@ -29,7 +29,7 @@ public class LotDetailFragment extends Fragment {
 
         ImageButton backBtn = view.findViewById(R.id.back_button);
         backBtn.setOnClickListener(v -> {
-                    // This is the magic line that goes back to the previous screen
+                    // go back to previous
                     if (getActivity() != null) {
                         getActivity().getSupportFragmentManager().popBackStack();
                     }
