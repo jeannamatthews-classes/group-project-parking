@@ -73,4 +73,5 @@ Jake Knapp | ID: 1000246 | knappjt@clarkson.edu
 - Updated GitHub with the most recent project version.
 - Created a detailed user manual outlining how to host and run a database, demo, and servers on a personal machine.
 - Coordinated between the user group and our team to establish plans for future development beyond the semester.
-- Met individually with each teammate to discuss their interest in continuing the project. 
+- Met individually with each teammate to discuss their interest in continuing the project.
+- Worked with Jack to get the app transfer working across both our machines.
