@@ -10,7 +10,8 @@ app = Flask(__name__)
 model = YOLO("yolov8n.pt")
 
 camera_manager = CameraManager(camera=None)
-camera_manager.set_parking_spots("spots.json")
+
+
 
 
 @app.route("/process", methods=["POST"])
@@ -20,6 +21,8 @@ def process_image():
         # 1. READ IMAGE
         # -------------------------
         file = request.files["image"]
+        json_file = request.form["json_file"]
+        camera_manager.set_parking_spots(json_file)
         file_bytes = file.read()
 
         with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as tmp:
@@ -42,17 +45,18 @@ def process_image():
         db = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="pword",
+            password="Cleveland0$@",
             database="parking_app"
         )
         cursor = db.cursor()
 
         cursor.execute("""
-            INSERT INTO parking_status (camera_id, used_spaces)
-            VALUES (%s, %s)
+            INSERT INTO parking_status (camera_id, used_spaces, total_spaces)
+            VALUES (%s, %s, %s)
             ON DUPLICATE KEY UPDATE
+                total_spaces = VALUES(total_spaces),
                 used_spaces = VALUES(used_spaces)
-        """, (1, used_spaces))
+        """, (1, used_spaces, total_spaces))
 
         db.commit()
         cursor.close()
